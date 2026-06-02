@@ -6,12 +6,18 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "pinecone:setup": "node scripts/setup-pinecone.mjs"
   },
   "dependencies": {
+    "@ai-sdk/anthropic": "^3.0.81",
+    "@ai-sdk/react": "^3.0.196",
+    "@pinecone-database/pinecone": "^7.2.0",
+    "ai": "^6.0.194",
     "next": "16.2.7",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
