@@ -16,6 +16,11 @@ Paste a repo URL → index → explore **Wiki**, **Chat**, and **Traces** side b
 </p>
 <p align="center"><em>After ingest — Wiki (architecture), Chat (cited Q&amp;A), Traces (hybrid retrieval scores)</em></p>
 
+<p align="center">
+  <img src="docs/images/demo3.jpeg" width="95%" alt="Wiki, chat, and retrieval traces after indexing" />
+</p>
+<p align="center"><em>Visual Representation</em></p>
+
 ## Features
 
 

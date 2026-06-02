@@ -29,11 +29,34 @@ export type TraceEntry = {
   preview: string;
 };
 
+export type FlowNodeKind =
+  | "entry"
+  | "page"
+  | "api"
+  | "service"
+  | "data"
+  | "module";
+
+export type FlowNode = {
+  id: string;
+  label: string;
+  kind: FlowNodeKind;
+  filePath?: string;
+};
+
+export type FlowEdge = {
+  from: string;
+  to: string;
+  label?: string;
+};
+
 export type WikiStructured = {
   techStack: string[];
   keyModules: { name: string; description: string }[];
   entryPoints: { path: string; description: string }[];
   dataFlow: string;
+  flowNodes: FlowNode[];
+  flowEdges: FlowEdge[];
 };
 
 export type WikiState = {

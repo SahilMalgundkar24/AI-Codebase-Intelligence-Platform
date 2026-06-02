@@ -2,6 +2,7 @@
 
 import type { WikiStructured } from "@/lib/types";
 import { type ReactNode, useEffect, useState } from "react";
+import { ArchitectureMapModal } from "./ArchitectureMapModal";
 
 type Props = {
   sessionId: string | null;
@@ -27,6 +28,7 @@ export function WikiSidebar({
   const [status, setStatus] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [archModalOpen, setArchModalOpen] = useState(false);
 
   useEffect(() => {
     if (!sessionId) {
@@ -34,10 +36,12 @@ export function WikiSidebar({
       setMarkdown("");
       setStatus(null);
       setError(null);
+      setArchModalOpen(false);
       return;
     }
 
     const abort = new AbortController();
+    setArchModalOpen(false);
     setLoading(true);
     setStructured(null);
     setMarkdown("");
@@ -143,6 +147,26 @@ export function WikiSidebar({
 
           {structured && (
             <>
+              <div className="flex flex-wrap items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => setArchModalOpen(true)}
+                  className="rounded-lg border border-[var(--accent)] bg-[var(--accent-dim)] px-3 py-2 text-xs font-medium text-[var(--accent)] hover:bg-[var(--accent)] hover:text-[var(--bg)]"
+                >
+                  View in visual form
+                </button>
+                <span className="text-[10px] text-[var(--faint)]">
+                  Entry points &amp; data flow diagram
+                </span>
+              </div>
+
+              <ArchitectureMapModal
+                open={archModalOpen}
+                onClose={() => setArchModalOpen(false)}
+                structured={structured}
+                repoName={repoName}
+              />
+
               <section>
                 <SectionLabel>Stack</SectionLabel>
                 <div className="flex flex-wrap gap-2">

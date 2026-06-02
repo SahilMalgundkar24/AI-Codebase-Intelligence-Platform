@@ -5,11 +5,7 @@ import { DefaultChatTransport } from "ai";
 import type { IngestResult } from "@/lib/types";
 import { useMemo, useRef, useState } from "react";
 
-const SUGGESTIONS = [
-  "What is the main entry point?",
-  "How does authentication work?",
-  "What breaks if I change the auth layer?",
-];
+const SUGGESTIONS = ["What is the main entry point?"];
 
 type Props = {
   session: IngestResult | null;

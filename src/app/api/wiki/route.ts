@@ -75,7 +75,9 @@ Branch: ${session.defaultBranch}
 Files (${fileList.length} sampled): ${fileList.join(", ")}
 
 Code samples:
-${sampleChunks}`,
+${sampleChunks}
+
+For flowNodes and flowEdges: build a diagram of how the app starts (entry), main pages/routes or CLI commands, API routes, services, and data stores. Use real paths in filePath when known. Edges should reflect request/data flow (e.g. page -> api -> database).`,
         });
 
         updateWiki(sessionId, { structured });
